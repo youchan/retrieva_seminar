@@ -11,10 +11,10 @@ class PageBackground
         ),
         div({class: 'vborder'})
       ]
-    when 15
+    when Gibier.page_count - 1
       [
         div({class: 'particleground'},
-          div({class: 'logo'}),
+          div({class: 'logo large'}),
           div({class: 'copyright'}, "© 2017 Retrieva, Inc.")
         ),
       ]

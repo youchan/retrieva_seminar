@@ -1,7 +1,10 @@
 class Gibier::Page0 < Gibier::PageBase
+def header
+  h1(nil, "Rubyのはじめかた")
+end
+
 def content
   [].tap do |children|
-      children << h1(nil, "Rubyのはじめかた")
       children << p(nil, "レトリバセミナー 2018/01/10 大崎 瑶")
   end
 end

@@ -14,7 +14,9 @@
 }
 
 .page_0 h1 {
-  text-align: left;
+  text-align: center;
+  color: #fff;
+  margin-right: 20%;
 }
 
 .particleground {

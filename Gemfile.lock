@@ -7,23 +7,35 @@ GIT
 
 GIT
   remote: git://github.com/opal/opal-haml.git
-  revision: bf174e036997b2f9bc10402da78e110aba404bed
+  revision: c272e95e84caaf0aba5f8b7fbd8ff77b9aeeaba9
   specs:
-    opal-haml (0.4.4)
+    opal-haml (0.4.5)
       haml
       opal (~> 0.10, < 0.12)
       opal-sprockets (~> 0.4.1)
 
 GIT
   remote: git://github.com/youchan/opal-websocket.git
-  revision: 42ade51be80c9da6558f1337c4457eb41bd6b808
+  revision: 03dc38d26de66cc6a0ec329c7546735949f292bd
   specs:
     opal-websocket (0.1.0)
 
-PATH
-  remote: ../../gibier
+GEM
+  remote: https://rubygems.org/
   specs:
-    gibier (0.8.10)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
+    ast (2.4.0)
+    backports (3.11.3)
+    concurrent-ruby (1.0.5)
+    daemons (1.2.6)
+    em-websocket (0.3.8)
+      addressable (>= 2.1.1)
+      eventmachine (>= 0.12.9)
+    eventmachine (1.2.7)
+    ffi (1.9.23)
+    fssm (0.2.10)
+    gibier (0.8.11)
       eventmachine
       fssm
       haml
@@ -38,29 +50,13 @@ PATH
       thin
       thor
       unindent
-
-GEM
-  remote: https://rubygems.org/
-  specs:
-    addressable (2.5.2)
-      public_suffix (>= 2.0.2, < 4.0)
-    ast (2.3.0)
-    backports (3.11.0)
-    concurrent-ruby (1.0.5)
-    daemons (1.2.6)
-    em-websocket (0.3.8)
-      addressable (>= 2.1.1)
-      eventmachine (>= 0.12.9)
-    eventmachine (1.2.5)
-    ffi (1.9.18)
-    fssm (0.2.10)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
     hike (1.2.3)
     hyalite (0.2.6)
       opal
-    multi_json (1.13.0)
+    multi_json (1.13.1)
     opal (0.11.0)
       ast (>= 2.3.0)
       hike (~> 1.2)
@@ -72,18 +68,18 @@ GEM
       tilt (>= 1.4)
     parser (2.3.3.1)
       ast (~> 2.2)
-    public_suffix (3.0.1)
-    rack (1.6.8)
-    rack-protection (1.5.3)
+    public_suffix (3.0.2)
+    rack (1.6.10)
+    rack-protection (1.5.5)
       rack
-    rack-test (0.8.2)
+    rack-test (1.0.0)
       rack (>= 1.0, < 3)
-    rb-fsevent (0.10.2)
+    rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     redcarpet (3.4.0)
     rouge (1.11.1)
-    sass (3.5.5)
+    sass (3.5.6)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -120,7 +116,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  gibier!
+  gibier
   hyalite
   opal-haml!
   opal-router!

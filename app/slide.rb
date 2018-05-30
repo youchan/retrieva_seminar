@@ -108,9 +108,6 @@ module Gibier
       router.route(':page') {|params| set_state(page_number: params[:page].to_i) }
     end
 
-    def component_did_update(props, state, context)
-    end
-
     def page_to(num)
       $window.location.assign("#{$window.location.toString.sub(/#\d+$/, '')}##{num}")
     end
@@ -126,9 +123,9 @@ module Gibier
     def handle_key_down(event)
       keycode = event.code
       case keycode
-      when :Space, :ArrowRight, :ArrowUp
+      when :Space, :ArrowRight, :ArrowDown, :PageDown
         page_forward
-      when :Backspace, :ArrowLeft, :ArrowDown
+      when :Backspace, :ArrowLeft, :ArrowUp, :PageUp
         page_back
       when :KeyS, :KeyB
         unless @state[:start]

@@ -29445,7 +29445,7 @@ Opal.modules["slide"] = function(Opal) {
       function $Slide(){};
       var self = $Slide = $klass($base, $super, 'Slide', $Slide);
 
-      var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Slide_pages_13, TMP_Slide_initial_state_14, TMP_Slide_component_did_mount_19, TMP_Slide_component_did_update_20, TMP_Slide_page_to_21, TMP_Slide_page_back_22, TMP_Slide_page_forward_23, TMP_Slide_handle_key_down_24, TMP_Slide_fullscreen_25, TMP_Slide_duration_26, TMP_Slide_render_34;
+      var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Slide_pages_13, TMP_Slide_initial_state_14, TMP_Slide_component_did_mount_19, TMP_Slide_page_to_20, TMP_Slide_page_back_21, TMP_Slide_page_forward_22, TMP_Slide_handle_key_down_23, TMP_Slide_fullscreen_24, TMP_Slide_duration_25, TMP_Slide_render_33;
 
       def.state = def.props = nil;
       
@@ -29511,20 +29511,14 @@ if (params == null) params = nil;
         return self.$set_state($hash2(["page_number"], {"page_number": params['$[]']("page").$to_i()}))}, TMP_18.$$s = self, TMP_18.$$arity = 1, TMP_18));
       }, TMP_Slide_component_did_mount_19.$$arity = 0);
       
-      Opal.defn(self, '$component_did_update', TMP_Slide_component_did_update_20 = function $$component_did_update(props, state, context) {
-        var self = this;
-
-        return nil
-      }, TMP_Slide_component_did_update_20.$$arity = 3);
-      
-      Opal.defn(self, '$page_to', TMP_Slide_page_to_21 = function $$page_to(num) {
+      Opal.defn(self, '$page_to', TMP_Slide_page_to_20 = function $$page_to(num) {
         var self = this;
         if ($gvars.window == null) $gvars.window = nil;
 
         return $gvars.window.$location().$assign("" + ($gvars.window.$location().$toString().$sub(/#\d+$/, "")) + "#" + (num))
-      }, TMP_Slide_page_to_21.$$arity = 1);
+      }, TMP_Slide_page_to_20.$$arity = 1);
       
-      Opal.defn(self, '$page_back', TMP_Slide_page_back_22 = function $$page_back() {
+      Opal.defn(self, '$page_back', TMP_Slide_page_back_21 = function $$page_back() {
         var self = this;
 
         if ($truthy($rb_gt(self.state['$[]']("page_number"), 0))) {
@@ -29532,9 +29526,9 @@ if (params == null) params = nil;
           } else {
           return nil
         }
-      }, TMP_Slide_page_back_22.$$arity = 0);
+      }, TMP_Slide_page_back_21.$$arity = 0);
       
-      Opal.defn(self, '$page_forward', TMP_Slide_page_forward_23 = function $$page_forward() {
+      Opal.defn(self, '$page_forward', TMP_Slide_page_forward_22 = function $$page_forward() {
         var self = this;
 
         if ($truthy($rb_lt(self.state['$[]']("page_number"), Opal.const_get_relative($nesting, 'Gibier').$page_count()))) {
@@ -29542,16 +29536,16 @@ if (params == null) params = nil;
           } else {
           return nil
         }
-      }, TMP_Slide_page_forward_23.$$arity = 0);
+      }, TMP_Slide_page_forward_22.$$arity = 0);
       
-      Opal.defn(self, '$handle_key_down', TMP_Slide_handle_key_down_24 = function $$handle_key_down(event) {
+      Opal.defn(self, '$handle_key_down', TMP_Slide_handle_key_down_23 = function $$handle_key_down(event) {
         var self = this, keycode = nil, $case = nil;
 
         
         keycode = event.$code();
         return (function() {$case = keycode;
-        if ("Space"['$===']($case) || "ArrowRight"['$===']($case) || "ArrowUp"['$===']($case)) {return self.$page_forward()}
-        else if ("Backspace"['$===']($case) || "ArrowLeft"['$===']($case) || "ArrowDown"['$===']($case)) {return self.$page_back()}
+        if ("Space"['$===']($case) || "ArrowRight"['$===']($case) || "ArrowDown"['$===']($case) || "PageDown"['$===']($case)) {return self.$page_forward()}
+        else if ("Backspace"['$===']($case) || "ArrowLeft"['$===']($case) || "ArrowUp"['$===']($case) || "PageUp"['$===']($case)) {return self.$page_back()}
         else if ("KeyS"['$===']($case) || "KeyB"['$===']($case)) {if ($truthy(self.state['$[]']("start"))) {
           return self.$set_state($hash2(["start"], {"start": nil}))
           } else {
@@ -29575,9 +29569,9 @@ if (params == null) params = nil;
           return nil
         }}
         else {return self.$puts("" + "keycode = " + (keycode))}})();
-      }, TMP_Slide_handle_key_down_24.$$arity = 1);
+      }, TMP_Slide_handle_key_down_23.$$arity = 1);
       
-      Opal.defn(self, '$fullscreen', TMP_Slide_fullscreen_25 = function $$fullscreen() {
+      Opal.defn(self, '$fullscreen', TMP_Slide_fullscreen_24 = function $$fullscreen() {
         var self = this;
 
         
@@ -29588,9 +29582,9 @@ if (params == null) params = nil;
             requestMethod.call(element);
         }
       
-      }, TMP_Slide_fullscreen_25.$$arity = 0);
+      }, TMP_Slide_fullscreen_24.$$arity = 0);
       
-      Opal.defn(self, '$duration', TMP_Slide_duration_26 = function $$duration() {
+      Opal.defn(self, '$duration', TMP_Slide_duration_25 = function $$duration() {
         var self = this, text = nil;
 
         
@@ -29602,9 +29596,9 @@ if (params == null) params = nil;
         }
       ;
         return $rb_times(text.$to_i(), 60);
-      }, TMP_Slide_duration_26.$$arity = 0);
-      return (Opal.defn(self, '$render', TMP_Slide_render_34 = function $$render() {
-        var $a, TMP_27, TMP_28, TMP_29, TMP_30, TMP_31, TMP_32, TMP_33, self = this, zoom = nil, top = nil, left = nil, rect = nil, footer_style = nil, $case = nil;
+      }, TMP_Slide_duration_25.$$arity = 0);
+      return (Opal.defn(self, '$render', TMP_Slide_render_33 = function $$render() {
+        var $a, TMP_26, TMP_27, TMP_28, TMP_29, TMP_30, TMP_31, TMP_32, self = this, zoom = nil, top = nil, left = nil, rect = nil, footer_style = nil, $case = nil;
         if ($gvars.window == null) $gvars.window = nil;
 
         
@@ -29622,35 +29616,38 @@ if (params == null) params = nil;
           return $hash2([], {})
         }; return nil; })();
         return (function() {$case = self.state['$[]']("mode");
-        if ("slide"['$===']($case)) {return self.$div($hash2(["className"], {"className": "background"}), self.$div($hash2(["className"], {"className": "background-filter"}), self.$div($hash2(["class"], {"class": "slide-controll"}), self.$div($hash2(["class", "onClick", "onTouchStart"], {"class": "page-back", "onClick": $send(self, 'lambda', [], (TMP_27 = function(){var self = TMP_27.$$s || this;
+        if ("slide"['$===']($case)) {return self.$div($hash2(["className"], {"className": "background"}), self.$div($hash2(["className"], {"className": "background-filter"}), self.$div($hash2(["class"], {"class": "slide-controll"}), self.$div($hash2(["class", "onClick", "onTouchStart"], {"class": "page-back", "onClick": $send(self, 'lambda', [], (TMP_26 = function(){var self = TMP_26.$$s || this;
 
-        return self.$page_back()}, TMP_27.$$s = self, TMP_27.$$arity = 0, TMP_27)), "onTouchStart": $send(self, 'lambda', [], (TMP_28 = function(){var self = TMP_28.$$s || this;
+        return self.$page_back()}, TMP_26.$$s = self, TMP_26.$$arity = 0, TMP_26)), "onTouchStart": $send(self, 'lambda', [], (TMP_27 = function(){var self = TMP_27.$$s || this;
 
-        return self.$page_back()}, TMP_28.$$s = self, TMP_28.$$arity = 0, TMP_28))})), self.$div($hash2(["class", "onClick", "onTouchStart"], {"class": "page-forward", "onClick": $send(self, 'lambda', [], (TMP_29 = function(){var self = TMP_29.$$s || this;
+        return self.$page_back()}, TMP_27.$$s = self, TMP_27.$$arity = 0, TMP_27))})), self.$div($hash2(["class", "onClick", "onTouchStart"], {"class": "page-forward", "onClick": $send(self, 'lambda', [], (TMP_28 = function(){var self = TMP_28.$$s || this;
 
-        return self.$page_forward()}, TMP_29.$$s = self, TMP_29.$$arity = 0, TMP_29)), "onTouchStart": $send(self, 'lambda', [], (TMP_30 = function(){var self = TMP_30.$$s || this;
+        return self.$page_forward()}, TMP_28.$$s = self, TMP_28.$$arity = 0, TMP_28)), "onTouchStart": $send(self, 'lambda', [], (TMP_29 = function(){var self = TMP_29.$$s || this;
 
-        return self.$page_forward()}, TMP_30.$$s = self, TMP_30.$$arity = 0, TMP_30))})), self.$div($hash2(["className", "onKeyDown"], {"className": "slide", "onKeyDown": $send(self, 'lambda', [], (TMP_31 = function(event){var self = TMP_31.$$s || this;
+        return self.$page_forward()}, TMP_29.$$s = self, TMP_29.$$arity = 0, TMP_29))})), self.$div($hash2(["className", "onKeyDown"], {"className": "slide", "onKeyDown": $send(self, 'lambda', [], (TMP_30 = function(event){var self = TMP_30.$$s || this;
 if (event == null) event = nil;
-        return self.$handle_key_down(event)}, TMP_31.$$s = self, TMP_31.$$arity = 1, TMP_31))}), self.$pages(rect)), Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Gibier'), 'TrackField').$el($hash2(["total_time", "start", "page_number", "page_count"], {"total_time": self.$duration(), "start": self.state['$[]']("start"), "page_number": self.state['$[]']("page_number"), "page_count": Opal.const_get_relative($nesting, 'Gibier').$page_count()})), self.$section($hash2(["className"], {"className": "footer"}).$merge(footer_style), self.$p($hash2(["className"], {"className": "title"}), Opal.const_get_relative($nesting, 'Gibier').$title()), self.$p($hash2(["className"], {"className": "powered-by"}), "Powered by ", self.$span($hash2(["className"], {"className": "hyalite"}), "Hyalite"))))))}
-        else if ("print"['$===']($case)) {return self.$div($hash2(["className", "onKeyDown"], {"className": "print", "onKeyDown": $send(self, 'lambda', [], (TMP_32 = function(evt){var self = TMP_32.$$s || this;
+        return self.$handle_key_down(event)}, TMP_30.$$s = self, TMP_30.$$arity = 1, TMP_30))}), self.$pages(rect)), Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Gibier'), 'TrackField').$el($hash2(["total_time", "start", "page_number", "page_count"], {"total_time": self.$duration(), "start": self.state['$[]']("start"), "page_number": self.state['$[]']("page_number"), "page_count": Opal.const_get_relative($nesting, 'Gibier').$page_count()})), self.$section($hash2(["className"], {"className": "footer"}).$merge(footer_style), self.$p($hash2(["className"], {"className": "title"}), Opal.const_get_relative($nesting, 'Gibier').$title()), self.$p($hash2(["className"], {"className": "powered-by"}), "Powered by ", self.$span($hash2(["className"], {"className": "hyalite"}), "Hyalite"))))))}
+        else if ("print"['$===']($case)) {return self.$div($hash2(["className", "onKeyDown"], {"className": "print", "onKeyDown": $send(self, 'lambda', [], (TMP_31 = function(evt){var self = TMP_31.$$s || this;
 if (evt == null) evt = nil;
-        return self.$handle_key_down(evt)}, TMP_32.$$s = self, TMP_32.$$arity = 1, TMP_32))}), $send(self.$pages($rb_times(Opal.const_get_relative($nesting, 'SLIDE_HEIGHT'), zoom)), 'map', [], (TMP_33 = function(page){var self = TMP_33.$$s || this;
+        return self.$handle_key_down(evt)}, TMP_31.$$s = self, TMP_31.$$arity = 1, TMP_31))}), $send(self.$pages($rb_times(Opal.const_get_relative($nesting, 'SLIDE_HEIGHT'), zoom)), 'map', [], (TMP_32 = function(page){var self = TMP_32.$$s || this;
 if (page == null) page = nil;
         
           top = $rb_plus(top, $rb_times(Opal.const_get_relative($nesting, 'SLIDE_HEIGHT'), zoom));
-          return self.$div($hash2(["className", "style"], {"className": "wrap-page", "style": $hash2(["zoom", "width", "height", "top", "left"], {"zoom": zoom, "width": "" + (Opal.const_get_relative($nesting, 'SLIDE_WIDTH')) + "px", "height": "" + (Opal.const_get_relative($nesting, 'SLIDE_HEIGHT')) + "px", "top": "" + (top) + "px", "left": "" + (left) + "px"})}), page);}, TMP_33.$$s = self, TMP_33.$$arity = 1, TMP_33)))}
+          return self.$div($hash2(["className", "style"], {"className": "wrap-page", "style": $hash2(["zoom", "width", "height", "top", "left"], {"zoom": zoom, "width": "" + (Opal.const_get_relative($nesting, 'SLIDE_WIDTH')) + "px", "height": "" + (Opal.const_get_relative($nesting, 'SLIDE_HEIGHT')) + "px", "top": "" + (top) + "px", "left": "" + (left) + "px"})}), page);}, TMP_32.$$s = self, TMP_32.$$arity = 1, TMP_32)))}
         else { return nil }})();
-      }, TMP_Slide_render_34.$$arity = 0), nil) && 'render';
+      }, TMP_Slide_render_33.$$arity = 0), nil) && 'render';
     })($nesting[0], null, $nesting);
   })($nesting[0], $nesting);
 };
 
 /* Generated by Opal 0.11.0 */
 Opal.modules["page_background"] = function(Opal) {
+  function $rb_minus(lhs, rhs) {
+    return (typeof(lhs) === 'number' && typeof(rhs) === 'number') ? lhs - rhs : lhs['$-'](rhs);
+  }
   var self = Opal.top, $nesting = [], nil = Opal.nil, $breaker = Opal.breaker, $slice = Opal.slice, $klass = Opal.klass, $hash2 = Opal.hash2;
 
-  Opal.add_stubs(['$include', '$[]', '$===', '$div', '$background']);
+  Opal.add_stubs(['$include', '$[]', '$===', '$div', '$-', '$page_count', '$background']);
   return (function($base, $super, $parent_nesting) {
     function $PageBackground(){};
     var self = $PageBackground = $klass($base, $super, 'PageBackground', $PageBackground);
@@ -29666,7 +29663,7 @@ Opal.modules["page_background"] = function(Opal) {
 
       return (function() {$case = self.props['$[]']("page_number");
       if ((0)['$===']($case)) {return [self.$div($hash2(["class"], {"class": "particleground"}), self.$div($hash2(["class"], {"class": "logo"})), self.$div($hash2(["class"], {"class": "copyright"}), "© 2017 Retrieva, Inc.")), self.$div($hash2(["class"], {"class": "vborder"}))]}
-      else if ((15)['$===']($case)) {return [self.$div($hash2(["class"], {"class": "particleground"}), self.$div($hash2(["class"], {"class": "logo"})), self.$div($hash2(["class"], {"class": "copyright"}), "© 2017 Retrieva, Inc."))]}
+      else if ($rb_minus(Opal.const_get_relative($nesting, 'Gibier').$page_count(), 1)['$===']($case)) {return [self.$div($hash2(["class"], {"class": "particleground"}), self.$div($hash2(["class"], {"class": "logo large"})), self.$div($hash2(["class"], {"class": "copyright"}), "© 2017 Retrieva, Inc."))]}
       else {return [self.$div($hash2(["class"], {"class": "border"})), self.$div($hash2(["class"], {"class": "dog"})), self.$div($hash2(["class"], {"class": "copyright"}), "© 2017 Retrieva, Inc.")]}})()
     }, TMP_PageBackground_background_1.$$arity = 0);
     return (Opal.defn(self, '$render', TMP_PageBackground_render_2 = function $$render() {
@@ -29747,341 +29744,346 @@ Opal.modules["slides/2018-01-10/pages"] = function(Opal) {
   }
   var self = Opal.top, $nesting = [], nil = Opal.nil, $breaker = Opal.breaker, $slice = Opal.slice, $klass = Opal.klass, $send = Opal.send, $hash2 = Opal.hash2, $writer = nil;
 
-  Opal.add_stubs(['$tap', '$<<', '$h1', '$p', '$h2', '$ul', '$li', '$img', '$assets_path', '$strong', '$a', '$page_count=', '$-', '$title=']);
+  Opal.add_stubs(['$h1', '$tap', '$<<', '$p', '$h2', '$ul', '$li', '$img', '$assets_path', '$strong', '$a', '$page_count=', '$-', '$title=']);
   
   (function($base, $super, $parent_nesting) {
     function $Page0(){};
     var self = $Page0 = $klass($base, $super, 'Page0', $Page0);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page0_content_2;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page0_header_1, TMP_Page0_content_3;
 
-    return (Opal.defn(self, '$content', TMP_Page0_content_2 = function $$content() {
-      var TMP_1, self = this;
+    
+    
+    Opal.defn(self, '$header', TMP_Page0_header_1 = function $$header() {
+      var self = this;
 
-      return $send([], 'tap', [], (TMP_1 = function(children){var self = TMP_1.$$s || this;
+      return self.$h1(nil, "Rubyのはじめかた")
+    }, TMP_Page0_header_1.$$arity = 0);
+    return (Opal.defn(self, '$content', TMP_Page0_content_3 = function $$content() {
+      var TMP_2, self = this;
+
+      return $send([], 'tap', [], (TMP_2 = function(children){var self = TMP_2.$$s || this;
 if (children == null) children = nil;
-      
-        children['$<<'](self.$h1(nil, "Rubyのはじめかた"));
-        return children['$<<'](self.$p(nil, "レトリバセミナー 2018/01/10 大崎 瑶"));}, TMP_1.$$s = self, TMP_1.$$arity = 1, TMP_1))
-    }, TMP_Page0_content_2.$$arity = 0), nil) && 'content'
+      return children['$<<'](self.$p(nil, "レトリバセミナー 2018/01/10 大崎 瑶"))}, TMP_2.$$s = self, TMP_2.$$arity = 1, TMP_2))
+    }, TMP_Page0_content_3.$$arity = 0), nil) && 'content';
   })(Opal.const_get_relative($nesting, 'Gibier'), Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Gibier'), 'PageBase'), $nesting);
   (function($base, $super, $parent_nesting) {
     function $Page1(){};
     var self = $Page1 = $klass($base, $super, 'Page1', $Page1);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page1_header_3, TMP_Page1_content_5;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page1_header_4, TMP_Page1_content_6;
 
     
     
-    Opal.defn(self, '$header', TMP_Page1_header_3 = function $$header() {
+    Opal.defn(self, '$header', TMP_Page1_header_4 = function $$header() {
       var self = this;
 
       return self.$h2(nil, "whoami")
-    }, TMP_Page1_header_3.$$arity = 0);
-    return (Opal.defn(self, '$content', TMP_Page1_content_5 = function $$content() {
-      var TMP_4, self = this;
+    }, TMP_Page1_header_4.$$arity = 0);
+    return (Opal.defn(self, '$content', TMP_Page1_content_6 = function $$content() {
+      var TMP_5, self = this;
 
-      return $send([], 'tap', [], (TMP_4 = function(children){var self = TMP_4.$$s || this;
+      return $send([], 'tap', [], (TMP_5 = function(children){var self = TMP_5.$$s || this;
 if (children == null) children = nil;
       
         children['$<<'](self.$ul(nil, self.$li(nil, "名前"), self.$ul(nil, self.$li(nil, "大崎 瑶(よう)")), self.$li(nil, "略歴"), self.$ul(nil, self.$li(nil, "1998 - 2000 筑波大学 大学院 電子情報工学研究科 (工学修士了)"), self.$li(nil, "2009 - 2014 株式会社アプレッソ"), self.$li(nil, "2014 - 2017 株式会社ユビレジ"), self.$li(nil, "2017/11 株式会社レトリバ 入社")), self.$li(nil, "趣味"), self.$ul(nil, self.$li(nil, "お酒 🍶"), self.$li(nil, "プログラミング"), self.$li(nil, "技術書の薄い本"), self.$li(nil, "電子工作"))));
-        return children['$<<'](self.$p(nil, self.$p($hash2(["class"], {"class": "analog"}), self.$img($hash2(["src"], {"src": "" + (Opal.const_get_relative($nesting, 'Gibier').$assets_path()) + "/images/analog.jpg"}), ""))));}, TMP_4.$$s = self, TMP_4.$$arity = 1, TMP_4))
-    }, TMP_Page1_content_5.$$arity = 0), nil) && 'content';
+        return children['$<<'](self.$p(nil, self.$p($hash2(["class"], {"class": "analog"}), self.$img($hash2(["src"], {"src": "" + (Opal.const_get_relative($nesting, 'Gibier').$assets_path()) + "/images/analog.jpg"}), ""))));}, TMP_5.$$s = self, TMP_5.$$arity = 1, TMP_5))
+    }, TMP_Page1_content_6.$$arity = 0), nil) && 'content';
   })(Opal.const_get_relative($nesting, 'Gibier'), Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Gibier'), 'PageBase'), $nesting);
   (function($base, $super, $parent_nesting) {
     function $Page2(){};
     var self = $Page2 = $klass($base, $super, 'Page2', $Page2);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page2_header_6, TMP_Page2_content_8;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page2_header_7, TMP_Page2_content_9;
 
     
     
-    Opal.defn(self, '$header', TMP_Page2_header_6 = function $$header() {
+    Opal.defn(self, '$header', TMP_Page2_header_7 = function $$header() {
       var self = this;
 
       return self.$h2(nil, "Rubyのすすめ")
-    }, TMP_Page2_header_6.$$arity = 0);
-    return (Opal.defn(self, '$content', TMP_Page2_content_8 = function $$content() {
-      var TMP_7, self = this;
+    }, TMP_Page2_header_7.$$arity = 0);
+    return (Opal.defn(self, '$content', TMP_Page2_content_9 = function $$content() {
+      var TMP_8, self = this;
 
-      return $send([], 'tap', [], (TMP_7 = function(children){var self = TMP_7.$$s || this;
+      return $send([], 'tap', [], (TMP_8 = function(children){var self = TMP_8.$$s || this;
 if (children == null) children = nil;
-      return children['$<<'](self.$ul(nil, self.$li(nil, "Ruby on Rails"), self.$li(nil, "手になじむ道具としての言語"), self.$li(nil, "強力なメタプログラミング"), self.$li(nil, "開発者の多くは日本人"), self.$li(nil, "コミュニティ")))}, TMP_7.$$s = self, TMP_7.$$arity = 1, TMP_7))
-    }, TMP_Page2_content_8.$$arity = 0), nil) && 'content';
+      return children['$<<'](self.$ul(nil, self.$li(nil, "Ruby on Rails"), self.$li(nil, "手になじむ道具としての言語"), self.$li(nil, "強力なメタプログラミング"), self.$li(nil, "開発者の多くは日本人"), self.$li(nil, "コミュニティ")))}, TMP_8.$$s = self, TMP_8.$$arity = 1, TMP_8))
+    }, TMP_Page2_content_9.$$arity = 0), nil) && 'content';
   })(Opal.const_get_relative($nesting, 'Gibier'), Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Gibier'), 'PageBase'), $nesting);
   (function($base, $super, $parent_nesting) {
     function $Page3(){};
     var self = $Page3 = $klass($base, $super, 'Page3', $Page3);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page3_header_9, TMP_Page3_content_11;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page3_header_10, TMP_Page3_content_12;
 
     
     
-    Opal.defn(self, '$header', TMP_Page3_header_9 = function $$header() {
+    Opal.defn(self, '$header', TMP_Page3_header_10 = function $$header() {
       var self = this;
 
       return self.$h2(nil, "どういう人に向いている？")
-    }, TMP_Page3_header_9.$$arity = 0);
-    return (Opal.defn(self, '$content', TMP_Page3_content_11 = function $$content() {
-      var TMP_10, self = this;
+    }, TMP_Page3_header_10.$$arity = 0);
+    return (Opal.defn(self, '$content', TMP_Page3_content_12 = function $$content() {
+      var TMP_11, self = this;
 
-      return $send([], 'tap', [], (TMP_10 = function(children){var self = TMP_10.$$s || this;
+      return $send([], 'tap', [], (TMP_11 = function(children){var self = TMP_11.$$s || this;
 if (children == null) children = nil;
-      return children['$<<'](self.$ul(nil, self.$li(nil, "プログラミングの学習"), self.$li(nil, "Webプログラマ"), self.$li(nil, "システムの運用管理"), self.$li(nil, "エキスパートプログラマの第2言語として"), self.$li(nil, "実は組込みにも…")))}, TMP_10.$$s = self, TMP_10.$$arity = 1, TMP_10))
-    }, TMP_Page3_content_11.$$arity = 0), nil) && 'content';
+      return children['$<<'](self.$ul(nil, self.$li(nil, "プログラミングの学習"), self.$li(nil, "Webプログラマ"), self.$li(nil, "システムの運用管理"), self.$li(nil, "エキスパートプログラマの第2言語として"), self.$li(nil, "実は組込みにも…")))}, TMP_11.$$s = self, TMP_11.$$arity = 1, TMP_11))
+    }, TMP_Page3_content_12.$$arity = 0), nil) && 'content';
   })(Opal.const_get_relative($nesting, 'Gibier'), Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Gibier'), 'PageBase'), $nesting);
   (function($base, $super, $parent_nesting) {
     function $Page4(){};
     var self = $Page4 = $klass($base, $super, 'Page4', $Page4);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page4_content_13;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page4_content_14;
 
-    return (Opal.defn(self, '$content', TMP_Page4_content_13 = function $$content() {
-      var TMP_12, self = this;
+    return (Opal.defn(self, '$content', TMP_Page4_content_14 = function $$content() {
+      var TMP_13, self = this;
 
-      return $send([], 'tap', [], (TMP_12 = function(children){var self = TMP_12.$$s || this;
+      return $send([], 'tap', [], (TMP_13 = function(children){var self = TMP_13.$$s || this;
 if (children == null) children = nil;
-      return children['$<<'](self.$p($hash2(["className"], {"className": "huge"}), self.$strong(nil, "Let's start Ruby!")))}, TMP_12.$$s = self, TMP_12.$$arity = 1, TMP_12))
-    }, TMP_Page4_content_13.$$arity = 0), nil) && 'content'
+      return children['$<<'](self.$p($hash2(["className"], {"className": "huge"}), self.$strong(nil, "Let's start Ruby!")))}, TMP_13.$$s = self, TMP_13.$$arity = 1, TMP_13))
+    }, TMP_Page4_content_14.$$arity = 0), nil) && 'content'
   })(Opal.const_get_relative($nesting, 'Gibier'), Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Gibier'), 'PageBase'), $nesting);
   (function($base, $super, $parent_nesting) {
     function $Page5(){};
     var self = $Page5 = $klass($base, $super, 'Page5', $Page5);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page5_header_14, TMP_Page5_content_16;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page5_header_15, TMP_Page5_content_17;
 
     
     
-    Opal.defn(self, '$header', TMP_Page5_header_14 = function $$header() {
+    Opal.defn(self, '$header', TMP_Page5_header_15 = function $$header() {
       var self = this;
 
       return self.$h2(nil, "出発点の違い")
-    }, TMP_Page5_header_14.$$arity = 0);
-    return (Opal.defn(self, '$content', TMP_Page5_content_16 = function $$content() {
-      var TMP_15, self = this;
+    }, TMP_Page5_header_15.$$arity = 0);
+    return (Opal.defn(self, '$content', TMP_Page5_content_17 = function $$content() {
+      var TMP_16, self = this;
 
-      return $send([], 'tap', [], (TMP_15 = function(children){var self = TMP_15.$$s || this;
+      return $send([], 'tap', [], (TMP_16 = function(children){var self = TMP_16.$$s || this;
 if (children == null) children = nil;
-      return children['$<<'](self.$ul(nil, self.$li(nil, "プログラミングをまったく知らない初心者"), self.$li(nil, "プログラミングちょっとわかる"), self.$li(nil, "他の言語でプログラミングできる"), self.$ul(nil, self.$li(nil, self.$strong(nil, "(a)"), " 動的型付けの言語でプログラミングできる。またはWebプログラマ(ex. Python, JavaScript, Perl, etc...)"), self.$li(nil, self.$strong(nil, "(b)"), " 静的的付けの言語でプログラミングできる(ex. Java, C++, Objective-C, Swift, etc...)")), self.$li(nil, "エキスパート(もちろんC言語での開発できる)")))}, TMP_15.$$s = self, TMP_15.$$arity = 1, TMP_15))
-    }, TMP_Page5_content_16.$$arity = 0), nil) && 'content';
+      return children['$<<'](self.$ul(nil, self.$li(nil, "プログラミングをまったく知らない初心者"), self.$li(nil, "プログラミングちょっとわかる"), self.$li(nil, "他の言語でプログラミングできる"), self.$ul(nil, self.$li(nil, self.$strong(nil, "(a)"), " 動的型付けの言語でプログラミングできる。またはWebプログラマ(ex. Python, JavaScript, Perl, etc...)"), self.$li(nil, self.$strong(nil, "(b)"), " 静的的付けの言語でプログラミングできる(ex. Java, C++, Objective-C, Swift, etc...)")), self.$li(nil, "エキスパート(もちろんC言語での開発できる)")))}, TMP_16.$$s = self, TMP_16.$$arity = 1, TMP_16))
+    }, TMP_Page5_content_17.$$arity = 0), nil) && 'content';
   })(Opal.const_get_relative($nesting, 'Gibier'), Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Gibier'), 'PageBase'), $nesting);
   (function($base, $super, $parent_nesting) {
     function $Page6(){};
     var self = $Page6 = $klass($base, $super, 'Page6', $Page6);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page6_header_17, TMP_Page6_content_19;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page6_header_18, TMP_Page6_content_20;
 
     
     
-    Opal.defn(self, '$header', TMP_Page6_header_17 = function $$header() {
+    Opal.defn(self, '$header', TMP_Page6_header_18 = function $$header() {
       var self = this;
 
       return self.$h2(nil, "1. プログラミングをまったく知らない初心者")
-    }, TMP_Page6_header_17.$$arity = 0);
-    return (Opal.defn(self, '$content', TMP_Page6_content_19 = function $$content() {
-      var TMP_18, self = this;
+    }, TMP_Page6_header_18.$$arity = 0);
+    return (Opal.defn(self, '$content', TMP_Page6_content_20 = function $$content() {
+      var TMP_19, self = this;
 
-      return $send([], 'tap', [], (TMP_18 = function(children){var self = TMP_18.$$s || this;
+      return $send([], 'tap', [], (TMP_19 = function(children){var self = TMP_19.$$s || this;
 if (children == null) children = nil;
       
         children['$<<'](self.$p(nil, "あなたが運よく女性ならば..."));
-        return children['$<<'](self.$p(nil, "=> ", self.$a($hash2(["href", "target"], {"href": "http://railsgirls.com/", "target": "_blank"}), "Rails Girls")));}, TMP_18.$$s = self, TMP_18.$$arity = 1, TMP_18))
-    }, TMP_Page6_content_19.$$arity = 0), nil) && 'content';
+        return children['$<<'](self.$p(nil, "=> ", self.$a($hash2(["href", "target"], {"href": "http://railsgirls.com/", "target": "_blank"}), "Rails Girls")));}, TMP_19.$$s = self, TMP_19.$$arity = 1, TMP_19))
+    }, TMP_Page6_content_20.$$arity = 0), nil) && 'content';
   })(Opal.const_get_relative($nesting, 'Gibier'), Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Gibier'), 'PageBase'), $nesting);
   (function($base, $super, $parent_nesting) {
     function $Page7(){};
     var self = $Page7 = $klass($base, $super, 'Page7', $Page7);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page7_header_20, TMP_Page7_content_22;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page7_header_21, TMP_Page7_content_23;
 
     
     
-    Opal.defn(self, '$header', TMP_Page7_header_20 = function $$header() {
+    Opal.defn(self, '$header', TMP_Page7_header_21 = function $$header() {
       var self = this;
 
       return self.$h2(nil, "1. プログラミングをまったく知らない初心者")
-    }, TMP_Page7_header_20.$$arity = 0);
-    return (Opal.defn(self, '$content', TMP_Page7_content_22 = function $$content() {
-      var TMP_21, self = this;
+    }, TMP_Page7_header_21.$$arity = 0);
+    return (Opal.defn(self, '$content', TMP_Page7_content_23 = function $$content() {
+      var TMP_22, self = this;
 
-      return $send([], 'tap', [], (TMP_21 = function(children){var self = TMP_21.$$s || this;
+      return $send([], 'tap', [], (TMP_22 = function(children){var self = TMP_22.$$s || this;
 if (children == null) children = nil;
       
         children['$<<'](self.$p(nil, "残念ながら男性ならば...(もちろん女性の場合でも)"));
-        return children['$<<'](self.$ul(nil, self.$li(nil, "やっぱりRailsからはじめるのはよいでしょう =>「", self.$a($hash2(["href", "target"], {"href": "http://igarashikuniaki.net/rails_textbook/", "target": "_blank"}), "Railsの教科書"), "」"), self.$ul(nil, self.$li(nil, "できれば「", self.$a($hash2(["href", "target"], {"href": "https://tatsu-zine.com/books/rails-textbook", "target": "_blank"}), "達人出版会版"), "」を買ってください。")), self.$li(nil, "オブジェクト指向とは何なのか？ということを知りたいなら =>「", self.$a($hash2(["href", "target"], {"href": "https://www.amazon.co.jp/dp/4798134651", "target": "_blank"}), "アジャイル時代のオブジェクト脳のつくり方"), "」"), self.$li(nil, "ちょっと変ったこんなのも => 「", self.$a($hash2(["href", "target"], {"href": "https://poignant.guide/", "target": "_blank"}), "Why's (Poignant) Guide to Ruby"), "」"), self.$ul(nil, self.$li(nil, "日本語版もあります。「", self.$a($hash2(["href", "target"], {"href": "http://www.aoky.net/articles/why_poignant_guide_to_ruby/", "target": "_blank"}), "ホワイの(感動的)Rubyガイド"), "」")), self.$li(nil, "子供向けには => 「", self.$a($hash2(["href", "target"], {"href": "http://amzn.asia/85JkzoO", "target": "_blank"}), "ルビィのぼうけん"), "」")));}, TMP_21.$$s = self, TMP_21.$$arity = 1, TMP_21))
-    }, TMP_Page7_content_22.$$arity = 0), nil) && 'content';
+        return children['$<<'](self.$ul(nil, self.$li(nil, "やっぱりRailsからはじめるのはよいでしょう =>「", self.$a($hash2(["href", "target"], {"href": "http://igarashikuniaki.net/rails_textbook/", "target": "_blank"}), "Railsの教科書"), "」"), self.$ul(nil, self.$li(nil, "できれば「", self.$a($hash2(["href", "target"], {"href": "https://tatsu-zine.com/books/rails-textbook", "target": "_blank"}), "達人出版会版"), "」を買ってください。")), self.$li(nil, "オブジェクト指向とは何なのか？ということを知りたいなら =>「", self.$a($hash2(["href", "target"], {"href": "https://www.amazon.co.jp/dp/4798134651", "target": "_blank"}), "アジャイル時代のオブジェクト脳のつくり方"), "」"), self.$li(nil, "ちょっと変ったこんなのも => 「", self.$a($hash2(["href", "target"], {"href": "https://poignant.guide/", "target": "_blank"}), "Why's (Poignant) Guide to Ruby"), "」"), self.$ul(nil, self.$li(nil, "日本語版もあります。「", self.$a($hash2(["href", "target"], {"href": "http://www.aoky.net/articles/why_poignant_guide_to_ruby/", "target": "_blank"}), "ホワイの(感動的)Rubyガイド"), "」")), self.$li(nil, "子供向けには => 「", self.$a($hash2(["href", "target"], {"href": "http://amzn.asia/85JkzoO", "target": "_blank"}), "ルビィのぼうけん"), "」")));}, TMP_22.$$s = self, TMP_22.$$arity = 1, TMP_22))
+    }, TMP_Page7_content_23.$$arity = 0), nil) && 'content';
   })(Opal.const_get_relative($nesting, 'Gibier'), Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Gibier'), 'PageBase'), $nesting);
   (function($base, $super, $parent_nesting) {
     function $Page8(){};
     var self = $Page8 = $klass($base, $super, 'Page8', $Page8);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page8_header_23, TMP_Page8_content_25;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page8_header_24, TMP_Page8_content_26;
 
     
     
-    Opal.defn(self, '$header', TMP_Page8_header_23 = function $$header() {
+    Opal.defn(self, '$header', TMP_Page8_header_24 = function $$header() {
       var self = this;
 
       return self.$h2(nil, "2. プログラミングちょっとわかる")
-    }, TMP_Page8_header_23.$$arity = 0);
-    return (Opal.defn(self, '$content', TMP_Page8_content_25 = function $$content() {
-      var TMP_24, self = this;
+    }, TMP_Page8_header_24.$$arity = 0);
+    return (Opal.defn(self, '$content', TMP_Page8_content_26 = function $$content() {
+      var TMP_25, self = this;
 
-      return $send([], 'tap', [], (TMP_24 = function(children){var self = TMP_24.$$s || this;
+      return $send([], 'tap', [], (TMP_25 = function(children){var self = TMP_25.$$s || this;
 if (children == null) children = nil;
       
         children['$<<'](self.$p(nil, "または、1の後どうしたらよいか…"));
-        return children['$<<'](self.$ul(nil, self.$li(nil, "Rails Girlsを終えた人はRails Girls Tokyo More!に行ってみてください。"), self.$li(nil, "実際に動くプログラムを書くのが一番のお勧め！題材がないという人にはこちらをどうぞ => 「", self.$a($hash2(["href", "target"], {"href": "https://www.lambdanote.com/products/ruby-ruby", "target": "_blank"}), "RubyでつくるRuby ゼロから学びなおすプログラミング言語入門"), "」"), self.$li(nil, "ちょっと古いけど => 「", self.$a($hash2(["href", "target"], {"href": "http://amzn.asia/asMNfkJ", "target": "_blank"}), "恋するプログラム―Rubyでつくる人工無脳"), "」"), self.$li(nil, "Rubyの入門をしましょう => 「", self.$a($hash2(["href", "target"], {"href": "http://amzn.asia/ix8iTaA", "target": "_blank"}), "たのしいRuby"), "」")));}, TMP_24.$$s = self, TMP_24.$$arity = 1, TMP_24))
-    }, TMP_Page8_content_25.$$arity = 0), nil) && 'content';
+        return children['$<<'](self.$ul(nil, self.$li(nil, "Rails Girlsを終えた人はRails Girls Tokyo More!に行ってみてください。"), self.$li(nil, "実際に動くプログラムを書くのが一番のお勧め！題材がないという人にはこちらをどうぞ => 「", self.$a($hash2(["href", "target"], {"href": "https://www.lambdanote.com/products/ruby-ruby", "target": "_blank"}), "RubyでつくるRuby ゼロから学びなおすプログラミング言語入門"), "」"), self.$li(nil, "ちょっと古いけど => 「", self.$a($hash2(["href", "target"], {"href": "http://amzn.asia/asMNfkJ", "target": "_blank"}), "恋するプログラム―Rubyでつくる人工無脳"), "」"), self.$li(nil, "Rubyの入門をしましょう => 「", self.$a($hash2(["href", "target"], {"href": "http://amzn.asia/ix8iTaA", "target": "_blank"}), "たのしいRuby"), "」")));}, TMP_25.$$s = self, TMP_25.$$arity = 1, TMP_25))
+    }, TMP_Page8_content_26.$$arity = 0), nil) && 'content';
   })(Opal.const_get_relative($nesting, 'Gibier'), Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Gibier'), 'PageBase'), $nesting);
   (function($base, $super, $parent_nesting) {
     function $Page9(){};
     var self = $Page9 = $klass($base, $super, 'Page9', $Page9);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page9_header_26, TMP_Page9_content_28;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page9_header_27, TMP_Page9_content_29;
 
     
     
-    Opal.defn(self, '$header', TMP_Page9_header_26 = function $$header() {
+    Opal.defn(self, '$header', TMP_Page9_header_27 = function $$header() {
       var self = this;
 
       return self.$h2(nil, "3. 他の言語でプログラミングできる")
-    }, TMP_Page9_header_26.$$arity = 0);
-    return (Opal.defn(self, '$content', TMP_Page9_content_28 = function $$content() {
-      var TMP_27, self = this;
+    }, TMP_Page9_header_27.$$arity = 0);
+    return (Opal.defn(self, '$content', TMP_Page9_content_29 = function $$content() {
+      var TMP_28, self = this;
 
-      return $send([], 'tap', [], (TMP_27 = function(children){var self = TMP_27.$$s || this;
+      return $send([], 'tap', [], (TMP_28 = function(children){var self = TMP_28.$$s || this;
 if (children == null) children = nil;
       
         children['$<<'](self.$ul(nil, self.$li(nil, "他言語からRubyを学ぶのにおすすめ(ちょっと古め) => 「", self.$a($hash2(["href", "target"], {"href": "https://www.amazon.co.jp/%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AERuby-Yugui/dp/4873113679", "target": "_blank"}), "初めてのRuby"), "」"), self.$li(nil, "プロを目指したいという人にはこちら => 「", self.$a($hash2(["href", "target"], {"href": "http://amzn.asia/iJikCEK", "target": "_blank"}), "プロを目指す人のためのRuby入門"), "」")));
         children['$<<'](self.$p(nil, self.$strong(nil, "(a)"), " 動的言語 or Webプログラマ"));
         children['$<<'](self.$ul(nil, self.$li(nil, "やっぱりRails => ", self.$a($hash2(["href", "target"], {"href": "https://railstutorial.jp/", "target": "_blank"}), "Ruby on Rails チュートリアル")), self.$li(nil, "オブジェクト指向を本格的に学ぶなら => 「", self.$a($hash2(["href", "target"], {"href": "http://amzn.asia/9IXLege", "target": "_blank"}), "オブジェクト指向設計実践ガイド"), "」")));
         children['$<<'](self.$p(nil, self.$strong(nil, "(b)"), " 静的言語"));
-        return children['$<<'](self.$ul(nil, self.$li(nil, "Rubyの強力なメタプログラミングを学ぶなら => 「", self.$a($hash2(["href", "target"], {"href": "http://amzn.asia/3LKinbE", "target": "_blank"}), "メタプログラミングRuby"), "」")));}, TMP_27.$$s = self, TMP_27.$$arity = 1, TMP_27))
-    }, TMP_Page9_content_28.$$arity = 0), nil) && 'content';
+        return children['$<<'](self.$ul(nil, self.$li(nil, "Rubyの強力なメタプログラミングを学ぶなら => 「", self.$a($hash2(["href", "target"], {"href": "http://amzn.asia/3LKinbE", "target": "_blank"}), "メタプログラミングRuby"), "」")));}, TMP_28.$$s = self, TMP_28.$$arity = 1, TMP_28))
+    }, TMP_Page9_content_29.$$arity = 0), nil) && 'content';
   })(Opal.const_get_relative($nesting, 'Gibier'), Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Gibier'), 'PageBase'), $nesting);
   (function($base, $super, $parent_nesting) {
     function $Page10(){};
     var self = $Page10 = $klass($base, $super, 'Page10', $Page10);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page10_header_29, TMP_Page10_content_31;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page10_header_30, TMP_Page10_content_32;
 
     
     
-    Opal.defn(self, '$header', TMP_Page10_header_29 = function $$header() {
+    Opal.defn(self, '$header', TMP_Page10_header_30 = function $$header() {
       var self = this;
 
       return self.$h2(nil, "4. エキスパート")
-    }, TMP_Page10_header_29.$$arity = 0);
-    return (Opal.defn(self, '$content', TMP_Page10_content_31 = function $$content() {
-      var TMP_30, self = this;
+    }, TMP_Page10_header_30.$$arity = 0);
+    return (Opal.defn(self, '$content', TMP_Page10_content_32 = function $$content() {
+      var TMP_31, self = this;
 
-      return $send([], 'tap', [], (TMP_30 = function(children){var self = TMP_30.$$s || this;
+      return $send([], 'tap', [], (TMP_31 = function(children){var self = TMP_31.$$s || this;
 if (children == null) children = nil;
-      return children['$<<'](self.$p($hash2(["className"], {"className": "large"}), "好きにやってください…"))}, TMP_30.$$s = self, TMP_30.$$arity = 1, TMP_30))
-    }, TMP_Page10_content_31.$$arity = 0), nil) && 'content';
+      return children['$<<'](self.$p($hash2(["className"], {"className": "large"}), "好きにやってください…"))}, TMP_31.$$s = self, TMP_31.$$arity = 1, TMP_31))
+    }, TMP_Page10_content_32.$$arity = 0), nil) && 'content';
   })(Opal.const_get_relative($nesting, 'Gibier'), Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Gibier'), 'PageBase'), $nesting);
   (function($base, $super, $parent_nesting) {
     function $Page11(){};
     var self = $Page11 = $klass($base, $super, 'Page11', $Page11);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page11_header_32, TMP_Page11_content_34;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page11_header_33, TMP_Page11_content_35;
 
     
     
-    Opal.defn(self, '$header', TMP_Page11_header_32 = function $$header() {
+    Opal.defn(self, '$header', TMP_Page11_header_33 = function $$header() {
       var self = this;
 
       return self.$h2(nil, "4. エキスパート(C言語での開発できる)")
-    }, TMP_Page11_header_32.$$arity = 0);
-    return (Opal.defn(self, '$content', TMP_Page11_content_34 = function $$content() {
-      var TMP_33, self = this;
+    }, TMP_Page11_header_33.$$arity = 0);
+    return (Opal.defn(self, '$content', TMP_Page11_content_35 = function $$content() {
+      var TMP_34, self = this;
 
-      return $send([], 'tap', [], (TMP_33 = function(children){var self = TMP_33.$$s || this;
+      return $send([], 'tap', [], (TMP_34 = function(children){var self = TMP_34.$$s || this;
 if (children == null) children = nil;
-      return children['$<<'](self.$ul(nil, self.$li(nil, "Rubyを開発する"), self.$li(nil, "古いですが入口はこちら => 「", self.$a($hash2(["href", "target"], {"href": "https://ruby-hacking-guide.github.io/", "target": "_blank"}), "Ruby Hacking Guide"), "」"), self.$ul(nil, self.$li(nil, "日本語版 => 「", self.$a($hash2(["href", "target"], {"href": "http://i.loveruby.net/ja/rhg/book/", "target": "_blank"}), "Rubyソースコード完全解説"), "」"), self.$li(nil, self.$a($hash2(["href", "target"], {"href": "http://amzn.asia/5Ax7EWn", "target": "_blank"}), "書籍"))), self.$li(nil, "「", self.$a($hash2(["href", "target"], {"href": "http://amzn.asia/7p1bbkV", "target": "_blank"}), "Rubyのしくみ　Ruby Under a Microscope"), "」")))}, TMP_33.$$s = self, TMP_33.$$arity = 1, TMP_33))
-    }, TMP_Page11_content_34.$$arity = 0), nil) && 'content';
+      return children['$<<'](self.$ul(nil, self.$li(nil, "Rubyを開発する"), self.$li(nil, "古いですが入口はこちら => 「", self.$a($hash2(["href", "target"], {"href": "https://ruby-hacking-guide.github.io/", "target": "_blank"}), "Ruby Hacking Guide"), "」"), self.$ul(nil, self.$li(nil, "日本語版 => 「", self.$a($hash2(["href", "target"], {"href": "http://i.loveruby.net/ja/rhg/book/", "target": "_blank"}), "Rubyソースコード完全解説"), "」"), self.$li(nil, self.$a($hash2(["href", "target"], {"href": "http://amzn.asia/5Ax7EWn", "target": "_blank"}), "書籍"))), self.$li(nil, "「", self.$a($hash2(["href", "target"], {"href": "http://amzn.asia/7p1bbkV", "target": "_blank"}), "Rubyのしくみ　Ruby Under a Microscope"), "」")))}, TMP_34.$$s = self, TMP_34.$$arity = 1, TMP_34))
+    }, TMP_Page11_content_35.$$arity = 0), nil) && 'content';
   })(Opal.const_get_relative($nesting, 'Gibier'), Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Gibier'), 'PageBase'), $nesting);
   (function($base, $super, $parent_nesting) {
     function $Page12(){};
     var self = $Page12 = $klass($base, $super, 'Page12', $Page12);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page12_header_35, TMP_Page12_content_37;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page12_header_36, TMP_Page12_content_38;
 
     
     
-    Opal.defn(self, '$header', TMP_Page12_header_35 = function $$header() {
+    Opal.defn(self, '$header', TMP_Page12_header_36 = function $$header() {
       var self = this;
 
       return self.$h2(nil, "その他")
-    }, TMP_Page12_header_35.$$arity = 0);
-    return (Opal.defn(self, '$content', TMP_Page12_content_37 = function $$content() {
-      var TMP_36, self = this;
+    }, TMP_Page12_header_36.$$arity = 0);
+    return (Opal.defn(self, '$content', TMP_Page12_content_38 = function $$content() {
+      var TMP_37, self = this;
 
-      return $send([], 'tap', [], (TMP_36 = function(children){var self = TMP_36.$$s || this;
+      return $send([], 'tap', [], (TMP_37 = function(children){var self = TMP_37.$$s || this;
 if (children == null) children = nil;
-      return children['$<<'](self.$ul(nil, self.$li(nil, self.$a($hash2(["href", "target"], {"href": "http://rubykaigi.org/2018", "target": "_blank"}), "RubyKaigi"), "に行く"), self.$li(nil, "OSSに参加してみる"), self.$ul(nil, self.$li(nil, self.$a($hash2(["href", "target"], {"href": "https://oss-gate.github.io/", "target": "_blank"}), "OSS Gate"))), self.$li(nil, "地域Rubyコミュニティ"), self.$ul(nil, self.$li(nil, self.$a($hash2(["href", "target"], {"href": "https://asakusarb.esa.io/", "target": "_blank"}), "Asakusa.rb")))))}, TMP_36.$$s = self, TMP_36.$$arity = 1, TMP_36))
-    }, TMP_Page12_content_37.$$arity = 0), nil) && 'content';
+      return children['$<<'](self.$ul(nil, self.$li(nil, self.$a($hash2(["href", "target"], {"href": "http://rubykaigi.org/2018", "target": "_blank"}), "RubyKaigi"), "に行く"), self.$li(nil, "OSSに参加してみる"), self.$ul(nil, self.$li(nil, self.$a($hash2(["href", "target"], {"href": "https://oss-gate.github.io/", "target": "_blank"}), "OSS Gate"))), self.$li(nil, "地域Rubyコミュニティ"), self.$ul(nil, self.$li(nil, self.$a($hash2(["href", "target"], {"href": "https://asakusarb.esa.io/", "target": "_blank"}), "Asakusa.rb")))))}, TMP_37.$$s = self, TMP_37.$$arity = 1, TMP_37))
+    }, TMP_Page12_content_38.$$arity = 0), nil) && 'content';
   })(Opal.const_get_relative($nesting, 'Gibier'), Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Gibier'), 'PageBase'), $nesting);
   (function($base, $super, $parent_nesting) {
     function $Page13(){};
     var self = $Page13 = $klass($base, $super, 'Page13', $Page13);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page13_header_38, TMP_Page13_content_40;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page13_header_39, TMP_Page13_content_41;
 
     
     
-    Opal.defn(self, '$header', TMP_Page13_header_38 = function $$header() {
+    Opal.defn(self, '$header', TMP_Page13_header_39 = function $$header() {
       var self = this;
 
       return self.$h2(nil, "MRI以外のRuby実装を触ってみる")
-    }, TMP_Page13_header_38.$$arity = 0);
-    return (Opal.defn(self, '$content', TMP_Page13_content_40 = function $$content() {
-      var TMP_39, self = this;
+    }, TMP_Page13_header_39.$$arity = 0);
+    return (Opal.defn(self, '$content', TMP_Page13_content_41 = function $$content() {
+      var TMP_40, self = this;
 
-      return $send([], 'tap', [], (TMP_39 = function(children){var self = TMP_39.$$s || this;
+      return $send([], 'tap', [], (TMP_40 = function(children){var self = TMP_40.$$s || this;
 if (children == null) children = nil;
       
         children['$<<'](self.$ul(nil, self.$li(nil, self.$a($hash2(["href", "target"], {"href": "http://jruby.org/", "target": "_blank"}), "JRuby"), "(The Ruby Programming Language on the JVM)"), self.$li(nil, self.$a($hash2(["href", "target"], {"href": "https://rubinius.com/", "target": "_blank"}), "Rubinius"), "(Rubinius is a platform for building programming languages.)"), self.$li(nil, self.$a($hash2(["href", "target"], {"href": "https://github.com/mruby/mruby", "target": "_blank"}), "mruby"), "(Lightweight Ruby)"), self.$li(nil, self.$a($hash2(["href", "target"], {"href": "http://opalrb.com/", "target": "_blank"}), "Opal"), "(Ruby in the Browser)")));
-        return children['$<<'](self.$p(nil, "参考: ", self.$a($hash2(["href", "target"], {"href": "https://qiita.com/takeyuweb/items/ea7b42746152f03efdaa", "target": "_blank"}), "CRuby以外のRuby実装について調べたよ - Qiita")));}, TMP_39.$$s = self, TMP_39.$$arity = 1, TMP_39))
-    }, TMP_Page13_content_40.$$arity = 0), nil) && 'content';
+        return children['$<<'](self.$p(nil, "参考: ", self.$a($hash2(["href", "target"], {"href": "https://qiita.com/takeyuweb/items/ea7b42746152f03efdaa", "target": "_blank"}), "CRuby以外のRuby実装について調べたよ - Qiita")));}, TMP_40.$$s = self, TMP_40.$$arity = 1, TMP_40))
+    }, TMP_Page13_content_41.$$arity = 0), nil) && 'content';
   })(Opal.const_get_relative($nesting, 'Gibier'), Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Gibier'), 'PageBase'), $nesting);
   (function($base, $super, $parent_nesting) {
     function $Page14(){};
     var self = $Page14 = $klass($base, $super, 'Page14', $Page14);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page14_header_41, TMP_Page14_content_43;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page14_header_42, TMP_Page14_content_44;
 
     
     
-    Opal.defn(self, '$header', TMP_Page14_header_41 = function $$header() {
+    Opal.defn(self, '$header', TMP_Page14_header_42 = function $$header() {
       var self = this;
 
       return self.$h2(nil, "ちなみにOpalに入門するなら")
-    }, TMP_Page14_header_41.$$arity = 0);
-    return (Opal.defn(self, '$content', TMP_Page14_content_43 = function $$content() {
-      var TMP_42, self = this;
+    }, TMP_Page14_header_42.$$arity = 0);
+    return (Opal.defn(self, '$content', TMP_Page14_content_44 = function $$content() {
+      var TMP_43, self = this;
 
-      return $send([], 'tap', [], (TMP_42 = function(children){var self = TMP_42.$$s || this;
+      return $send([], 'tap', [], (TMP_43 = function(children){var self = TMP_43.$$s || this;
 if (children == null) children = nil;
       
         children['$<<'](self.$p(nil, self.$p($hash2(["class"], {"class": "book"}), self.$img($hash2(["src"], {"src": "" + (Opal.const_get_relative($nesting, 'Gibier').$assets_path()) + "/images/pragmatic-opal.png"}), ""))));
-        return children['$<<'](self.$p($hash2(["className"], {"className": "small"}), self.$a($hash2(["href", "target"], {"href": "https://youchan.booth.pm/items/665611", "target": "_blank"}), "BOOTH"), "にて販売しています。"));}, TMP_42.$$s = self, TMP_42.$$arity = 1, TMP_42))
-    }, TMP_Page14_content_43.$$arity = 0), nil) && 'content';
+        return children['$<<'](self.$p($hash2(["className"], {"className": "small"}), self.$a($hash2(["href", "target"], {"href": "https://youchan.booth.pm/items/665611", "target": "_blank"}), "BOOTH"), "にて販売しています。"));}, TMP_43.$$s = self, TMP_43.$$arity = 1, TMP_43))
+    }, TMP_Page14_content_44.$$arity = 0), nil) && 'content';
   })(Opal.const_get_relative($nesting, 'Gibier'), Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Gibier'), 'PageBase'), $nesting);
   (function($base, $super, $parent_nesting) {
     function $Page15(){};
     var self = $Page15 = $klass($base, $super, 'Page15', $Page15);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page15_content_45;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Page15_content_46;
 
-    return (Opal.defn(self, '$content', TMP_Page15_content_45 = function $$content() {
-      var TMP_44, self = this;
+    return (Opal.defn(self, '$content', TMP_Page15_content_46 = function $$content() {
+      var TMP_45, self = this;
 
-      return $send([], 'tap', [], (TMP_44 = function(children){var self = TMP_44.$$s || this;
+      return $send([], 'tap', [], (TMP_45 = function(children){var self = TMP_45.$$s || this;
 if (children == null) children = nil;
-      return nil}, TMP_44.$$s = self, TMP_44.$$arity = 1, TMP_44))
-    }, TMP_Page15_content_45.$$arity = 0), nil) && 'content'
+      return nil}, TMP_45.$$s = self, TMP_45.$$arity = 1, TMP_45))
+    }, TMP_Page15_content_46.$$arity = 0), nil) && 'content'
   })(Opal.const_get_relative($nesting, 'Gibier'), Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Gibier'), 'PageBase'), $nesting);
   
   $writer = [16];
@@ -30091,6 +30093,25 @@ if (children == null) children = nil;
   $writer = ["Rubyのはじめかた"];
   $send(Opal.const_get_relative($nesting, 'Gibier'), 'title=', Opal.to_a($writer));
   return $writer[$rb_minus($writer["length"], 1)];;
+};
+
+/* Generated by Opal 0.11.0 */
+Opal.modules["opal/websocket/version"] = function(Opal) {
+  var self = Opal.top, $nesting = [], nil = Opal.nil, $breaker = Opal.breaker, $slice = Opal.slice, $module = Opal.module;
+
+  return (function($base, $parent_nesting) {
+    var $Opal, self = $Opal = $module($base, 'Opal');
+
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting);
+
+    (function($base, $parent_nesting) {
+      var $Websocket, self = $Websocket = $module($base, 'Websocket');
+
+      var def = self.$$proto, $nesting = [self].concat($parent_nesting);
+
+      Opal.const_set($nesting[0], 'VERSION', "0.1.0")
+    })($nesting[0], $nesting)
+  })($nesting[0], $nesting)
 };
 
 /* Generated by Opal 0.11.0 */
@@ -30132,36 +30153,18 @@ Opal.modules["opal/array_buffer"] = function(Opal) {
 };
 
 /* Generated by Opal 0.11.0 */
-Opal.modules["opal/websocket/version"] = function(Opal) {
-  var self = Opal.top, $nesting = [], nil = Opal.nil, $breaker = Opal.breaker, $slice = Opal.slice, $module = Opal.module;
-
-  return (function($base, $parent_nesting) {
-    var $Opal, self = $Opal = $module($base, 'Opal');
-
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting);
-
-    (function($base, $parent_nesting) {
-      var $Websocket, self = $Websocket = $module($base, 'Websocket');
-
-      var def = self.$$proto, $nesting = [self].concat($parent_nesting);
-
-      Opal.const_set($nesting[0], 'VERSION', "0.1.0")
-    })($nesting[0], $nesting)
-  })($nesting[0], $nesting)
-};
-
-/* Generated by Opal 0.11.0 */
 Opal.modules["opal/websocket"] = function(Opal) {
-  var self = Opal.top, $nesting = [], nil = Opal.nil, $breaker = Opal.breaker, $slice = Opal.slice, $module = Opal.module, $klass = Opal.klass, $send = Opal.send, $truthy = Opal.truthy;
+  var self = Opal.top, $nesting = [], nil = Opal.nil, $breaker = Opal.breaker, $slice = Opal.slice, $truthy = Opal.truthy, $module = Opal.module, $klass = Opal.klass, $send = Opal.send;
 
-  Opal.add_stubs(['$require', '$==', '$include', '$===', '$raise', '$add_event_listener', '$open?', '$new', '$Native', '$alias_native', '$native_reader']);
+  Opal.add_stubs(['$require', '$!=', '$include', '$===', '$raise', '$add_event_listener', '$open?', '$new', '$Native', '$alias_native', '$native_reader']);
   
-  self.$require("opal");
-  if (Opal.const_get_relative($nesting, 'RUBY_ENGINE')['$==']("opal")) {
+  self.$require("opal/websocket/version");
+  if ($truthy(Opal.const_get_relative($nesting, 'RUBY_ENGINE')['$!=']("opal"))) {
+    return nil
+    } else {
     
     self.$require("native");
     self.$require("opal/array_buffer");
-    self.$require("opal/websocket/version");
     return (function($base, $parent_nesting) {
       var $Opal, self = $Opal = $module($base, 'Opal');
 
@@ -30287,8 +30290,6 @@ if (event == null) event = nil;
         })($nesting[0], Opal.const_get_relative($nesting, 'MessageEvent'), $nesting);
       })($nesting[0], null, $nesting)
     })($nesting[0], $nesting);
-    } else {
-    return nil
   };
 };
 
