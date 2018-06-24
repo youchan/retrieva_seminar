@@ -1,9 +1,9 @@
 require 'slide'
 require 'page_base'
-require 'slides/seminar/pages'
+require 'slides/speech_recognition_book-2018-06-06/pages'
 require 'opal/websocket'
 
-Gibier.slide_name = 'seminar'
+Gibier.slide_name = 'speech_recognition_book-2018-06-06'
 Gibier.gh_pages = `window.ghPages`
 Gibier.assets_path = `window.assetsPath`
 
@@ -14,7 +14,7 @@ module App
 end
 
 $document.ready do
-  ws = Opal::WebSocket.new("ws://#{`window.location.host`}/push_notification/start/slide/seminar") unless Gibier.gh_pages
+  ws = Opal::WebSocket.new("ws://#{`window.location.host`}/push_notification/start/slide/speech_recognition_book-2018-06-06") unless Gibier.gh_pages
 
   $window.on(:resize) do
     App.render(ws)

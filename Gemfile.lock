@@ -33,9 +33,9 @@ GEM
       addressable (>= 2.1.1)
       eventmachine (>= 0.12.9)
     eventmachine (1.2.7)
-    ffi (1.9.23)
+    ffi (1.9.25)
     fssm (0.2.10)
-    gibier (0.8.11)
+    gibier (0.8.12)
       eventmachine
       fssm
       haml

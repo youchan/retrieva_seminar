@@ -122,28 +122,26 @@ body {
 
 
 .page h3 img {
-  width: 1.2em;
+  height: 1.8em;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .page h4 img {
-  width: 80%;
-  margin: 0 auto;
-  display: block;
+  height: 1.6rem%;
+}
+
+.page p.inline img {
+  height: 1.8rem;
+  width: auto;
+  vertical-align: middle;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-.page img.inline {
-  height: 2rem;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.page .inline {
-  margin: 0 8px;
-  float: left;
+.page p.inline {
+  display: inline;
+  margin: 0;
 }
 
 .page p.huge {
